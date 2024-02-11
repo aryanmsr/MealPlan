@@ -6,7 +6,7 @@ from typing import List
 
 app = FastAPI()
 
-# Define Pydantic model for data validation
+# Defining Pydantic model for data validation
 class UserPreferences(BaseModel):
     age: int
     sex: str
