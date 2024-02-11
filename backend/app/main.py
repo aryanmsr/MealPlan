@@ -1,6 +1,6 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
-from .meal_planning_utils import RecipeDataProcessor, MealRecommender
+from .recommender import RecipeDataProcessor, MealRecommender
 import pandas as pd
 from typing import List
 
