@@ -1,5 +1,5 @@
 import pandas as pd
-from meal_planning_utils import RecipeDataProcessor, MealRecommender
+from backend.app.meal_planning_utils import RecipeDataProcessor, MealRecommender
 
 def main():
     #Main Entry Point for Meal Recommendation Engine
