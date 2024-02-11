@@ -4,11 +4,7 @@ from .meal_planning_utils import RecipeDataProcessor, MealRecommender
 import pandas as pd
 from typing import List
 
-
-
-
 app = FastAPI()
-
 
 # Define Pydantic model for data validation
 class UserPreferences(BaseModel):
@@ -22,7 +18,7 @@ class UserPreferences(BaseModel):
 
 @app.post("/recommend-meals/")
 async def recommend_meals(preferences: UserPreferences):
-    # Assuming your data files are accessible here
+    # Adding paths to recipes
     recipe_file = "../data/recipes.parquet"
     ingredient_file = "../data/recipes_ingredients.csv"
     
