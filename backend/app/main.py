@@ -51,7 +51,7 @@ async def recommend_meals(preferences: UserPreferences):
         meal_recommendations = {}
         for meal in meal_types:
             meal_recommendations[meal] = recommender.recommend_meals(user_per_meal_needs_df, meal).to_dict(orient='records')
-        
+        # print(meal_recommendations)
         return meal_recommendations
     
     except Exception as e:

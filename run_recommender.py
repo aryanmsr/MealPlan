@@ -1,5 +1,5 @@
 import pandas as pd
-from backend.app.meal_planning_utils import RecipeDataProcessor, MealRecommender
+from backend.app.recommender import RecipeDataProcessor, MealRecommender
 
 def main():
     #Main Entry Point for Meal Recommendation Engine
@@ -14,8 +14,8 @@ def main():
 
     recommender = MealRecommender(processed_data, nutritional_columns)
 
-    nutrients = recommender.estimate_daily_nutritional_needs(age=58, sex='male', weight=73, height=182,
-                                                             activity_level='sedentary', goal='light weight loss')
+    nutrients = recommender.estimate_daily_nutritional_needs(age=57, sex='male', weight=86, height=173,
+                                                             activity_level='moderately active', goal='moderate weight loss')
 
     meals_per_day = 3
     user_per_meal_needs = [value / meals_per_day for key, value in nutrients.items()]
