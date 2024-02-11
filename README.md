@@ -12,8 +12,8 @@ The Lifestyle Recommender is a Python-based system designed to provide personali
 
 ## Technologies Used
 
-- **Back-End**: TBD (Probably FastAPI)
-- **Front-End**: TBD (Probably React but if I am feeling lazy then Streamlit)
-- **Containerization**: TBD (Probably Docker)
+- **Back-End**: FastAPI
+- **Front-End**: TBD 
+- **Containerization**: Docker (TODO)
 - **Data Processing**: Python, Pandas
 
