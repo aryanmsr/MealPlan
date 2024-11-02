@@ -3,7 +3,7 @@
 ![MealPlan Banner](assets/banner.jpg) 
 
 
-**MealPlan** is a personalized meal recommendation application designed to help you meet my dietary goals. I built this tool to assis me in planning my meals effectively and meet my dietary goals using a combination of nutritional science and machine learning.
+**MealPlan** is a personalized meal recommendation tool I built to help assist me in planning my meals effectively and meet my dietary goals using a combination of nutritional science and machine learning.
 
 ## Features
 
