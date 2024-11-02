@@ -12,11 +12,13 @@
 - **Interactive Web Interface**: Easy-to-use web interface, allowing for a seamless user experience.
 
 ## Technologies Used
-- **Frontend**: React, React-Bootstrap
-- **Routing**: React Router for seamless navigation between pages
-- **Styling**: Bootstrap and custom CSS for a clean, Apple-inspired aesthetic
-- **Backend**: FastAPI (for meal recommendation API)
-- **Data Processing and ML Recommendations**: Python, Pandas, SciKit-Learn
+
+- **LLM**: Llama 3.2 (orchestration via Ollama and LangChain)
+- **Data Processing and ML**: Python, Pandas, Scikit-Learn for generating and refining meal recommendations.
+- **Frontend**: React with React-Bootstrap and custom CSS for a clean, intuitive user interface.
+- **Navigation**: React Router for seamless page transitions.
+- **Backend**: FastAPI to handle API requests and deliver meal recommendations.
+
 
 ### Prerequisites
 
