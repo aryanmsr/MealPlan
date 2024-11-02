@@ -1,25 +1,26 @@
-# Lifestyle Recommender
+# MealPlan - Recipe Recommender
 
-![DALL-E's attempt of describing this project](assets/lifestyle_recommender_dalle.jpg)
+![MealPlan Banner](assets/banner.jpg) 
 
-The Lifestyle Recommender is a Python-based system designed to provide personalized diet recommendations. Utilizing a combination of nutritional science and user preferences, this tool aims to assist users in planning their meals effectively to meet their dietary goals.
+
+**MealPlan** is a personalized meal recommendation application designed to help you meet my dietary goals. I built this tool to assis me in planning my meals effectively and meet my dietary goals using a combination of nutritional science and machine learning.
 
 ## Features
 
 - **Personalized Meal Recommendations**: Generates meal suggestions based on user-inputted criteria such as age, weight, height, activity level, and dietary goals.
 - **Data-Driven Insights**: Utilizes a rich dataset to offer recommendations that are both nutritious and tailored to user preferences.
-- **Interactive Web Interface (TODO)**: Easy-to-use web interface, allowing for a seamless user experience.
+- **Interactive Web Interface**: Easy-to-use web interface, allowing for a seamless user experience.
 
 ## Technologies Used
 
 - **Back-End**: FastAPI
-- **Front-End**: React 
+- **Front-End**: React, Bootstrap, CSS
 - **Containerization**: Docker (TODO)
-- **Data Processing**: Python, Pandas
+- **Data Processing & Recommendations**: Python, Pandas, SciKit-Learn
 
 ### Prerequisites
 
-- [Python 3.8+](https://www.python.org/downloads/)
+- [Python 3.10+](https://www.python.org/downloads/)
 - [Node.js and npm](https://nodejs.org/)
 
 ### Running the App Locally
@@ -41,3 +42,8 @@ The Lifestyle Recommender is a Python-based system designed to provide personali
 ### Usage
 
 - Go to `http://localhost:3000` in your browser to access the app.
+
+## Future Goals
+
+- **Enhanced Recommendations**:  The current recommendation model is quite basic, and future updates aim to incorporate language models and advanced recommendation techniques to provide more nuanced and personalized meal reccomendations.
+- **Detailed Nutritional Breakdown**: Show additional information like macros, vitamins, and minerals for each recommended meal along with the recipe.

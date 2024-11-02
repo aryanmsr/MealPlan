@@ -1,16 +1,20 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
+import Navbar from './components/Navbar';
+import Home from './pages/Home';
 import MealRecommendation from './MealRecommendation';
 
 function App() {
     return (
-        <div className="container">
-            <header className="my-5">
-                <h1>Meal Planner App</h1>
-            </header>
-            <MealRecommendation />
-        </div>
+        <Router>
+            <Navbar />
+            <Routes>
+                <Route path="/" element={<Home />} />
+                <Route path="/recommender" element={<MealRecommendation />} />
+            </Routes>
+        </Router>
     );
 }
 
 export default App;
-

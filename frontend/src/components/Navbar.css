@@ -1,0 +1,15 @@
+.navbar {
+    border-bottom: 1px solid #e0e0e0;
+    padding: 0.8rem 1rem;
+}
+
+.nav-link {
+    color: #333 !important;
+    font-weight: 500;
+    padding: 0.5rem 1rem;
+    transition: color 0.3s;
+}
+
+.nav-link:hover {
+    color: #007aff !important; 
+}
