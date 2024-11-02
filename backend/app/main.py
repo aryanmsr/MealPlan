@@ -1,8 +1,9 @@
 from fastapi import FastAPI, HTTPException
 from pydantic import BaseModel
+from typing import List
 from .recommender import RecipeDataProcessor, MealRecommender
 import pandas as pd
-from typing import List
+import os
 
 app = FastAPI()
 
@@ -18,10 +19,11 @@ class UserPreferences(BaseModel):
 
 @app.post("/recommend-meals/")
 async def recommend_meals(preferences: UserPreferences):
-    # Adding paths to recipes
-    recipe_file = "../data/recipes.parquet"
-    ingredient_file = "../data/recipes_ingredients.csv"
-    
+    # Calculating the root directory dynamically
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+    recipe_file = os.path.join(base_dir, "data", "recipes.parquet")
+    ingredient_file = os.path.join(base_dir, "data", "recipes_ingredients.csv")
+
     try:
         processor = RecipeDataProcessor(recipe_file, ingredient_file)
         processed_data = processor.process_data()
@@ -51,8 +53,8 @@ async def recommend_meals(preferences: UserPreferences):
         meal_recommendations = {}
         for meal in meal_types:
             meal_recommendations[meal] = recommender.recommend_meals(user_per_meal_needs_df, meal).to_dict(orient='records')
-        # print(meal_recommendations)
+
         return meal_recommendations
     
     except Exception as e:
-         raise HTTPException(status_code=500, detail=str(e))
+        raise HTTPException(status_code=500, detail=str(e))

@@ -30,6 +30,7 @@ function MealRecommendation() {
             body: JSON.stringify(userPreferences),
         });
         const data = await response.json();
+        console.log('Backend Response:', data); // Log response for debugging
         setRecommendations(data);
     };
 
@@ -53,15 +54,19 @@ function MealRecommendation() {
             {Object.entries(recommendations).map(([mealType, meals]) => (
                 <div key={mealType}>
                     <h3>{mealType}</h3>
-                    {meals.length > 0 && meals.map((meal, index) => (
-                        <div className="card" key={index} style={{ width: '18rem', marginBottom: '1rem' }}>
-                            <div className="card-body">
-                                <h5 className="card-title">{meal.name}</h5>
-                                <p className="card-text">{meal.calories} calories</p>
-                                {/* Additional meal details if needed */}
+                    {Array.isArray(meals) && meals.length > 0 ? (
+                        meals.map((meal, index) => (
+                            <div className="card" key={index} style={{ width: '18rem', marginBottom: '1rem' }}>
+                                <div className="card-body">
+                                    <h5 className="card-title">{meal.name}</h5>
+                                    <p className="card-text">{meal.calories} calories</p>
+                                    {/* Additional meal details if needed */}
+                                </div>
                             </div>
-                        </div>
-                    ))}
+                        ))
+                    ) : (
+                        <p>No meal recommendations available.</p>
+                    )}
                 </div>
             ))}
         </div>
