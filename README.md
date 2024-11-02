@@ -12,11 +12,11 @@
 - **Interactive Web Interface**: Easy-to-use web interface, allowing for a seamless user experience.
 
 ## Technologies Used
-
-- **Back-End**: FastAPI
-- **Front-End**: React, Bootstrap, CSS
-- **Containerization**: Docker (TODO)
-- **Data Processing & Recommendations**: Python, Pandas, SciKit-Learn
+- **Frontend**: React, React-Bootstrap
+- **Routing**: React Router for seamless navigation between pages
+- **Styling**: Bootstrap and custom CSS for a clean, Apple-inspired aesthetic
+- **Backend**: FastAPI (for meal recommendation API)
+- **Data Processing and ML Recommendations**: Python, Pandas, SciKit-Learn
 
 ### Prerequisites
 
