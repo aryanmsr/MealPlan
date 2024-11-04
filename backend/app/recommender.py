@@ -119,7 +119,7 @@ class RecipeDataProcessor:
         # Categorize mealType
         self.df_merged['mealType'] = self.df_merged.apply(
             lambda row: 'Breakfast' if row['recipeCategory'] == 'Breakfast' else 
-                        ('Snack' if row['totalTimeMinutes'] < 20 else 
+                        ('Snacks' if row['totalTimeMinutes'] < 20 else 
                         ('Lunch' if row['recipeCategory'] in lunch_categories else 'Dinner')), axis=1)
 
     def process_data(self) -> pd.DataFrame:
