@@ -14,6 +14,7 @@ function MealRecommendation() {
     });
     const [recommendations, setRecommendations] = useState({});
     const [summary, setSummary] = useState('');  // State for streaming summary
+    const [loading, setLoading] = useState(false);
 
     const handleChange = (event) => {
         const { name, value } = event.target;
@@ -24,6 +25,7 @@ function MealRecommendation() {
     };
     const handleSubmit = async (event) => {
         event.preventDefault();
+        setLoading(true);  // Start loading
         try {
             // Fetch and stream summary
             const response = await fetch('http://localhost:8000/recommend-summary/', {
@@ -42,6 +44,7 @@ function MealRecommendation() {
                     summaryText += decoder.decode(value, { stream: true });
                     setSummary(summaryText);  // Update summary as it streams
                 }
+                setLoading(false)
             }
     
             // Fetch recommendations separately after summary is complete
@@ -179,7 +182,9 @@ function MealRecommendation() {
                             </select>
                         </div>
                     </div>
-                    <button type="submit" className="btn btn-primary w-100 mt-3">Get Recommendations</button>
+                    <button type="submit" className="btn btn-primary w-100 mt-3" disabled={loading}>
+                    {loading ? "Loading..." : "Get Recommendations"}
+                    </button>
                 </form>
             </div>
 
@@ -204,7 +209,7 @@ function MealRecommendation() {
                                     <Card className="mb-3" key={idx} style={{ border: '1px solid #ddd' }}>
                                         <Card.Body>
                                             <Card.Title>{meal.name}</Card.Title>
-                                            <Card.Text><strong>Calories:</strong> {meal.calories} kcal</Card.Text>
+                                            <Card.Text><strong>Calories Per Serving:</strong> {meal.calories} kcal</Card.Text>
                                             <Accordion>
                                                 <Accordion.Item eventKey={`details-${idx}`}>
                                                     <Accordion.Header>Show Recipe</Accordion.Header>

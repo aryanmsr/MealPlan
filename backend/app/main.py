@@ -152,7 +152,7 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
             - Keep the response concise, clear, and accessible.
             - Do not use markdown syntax.
             - State the exact daily nutrition values provided to you without adding or recommending anything extra.
-            - Conclude with a friendly prompt to the user, inviting them to check out the recommended recipes below to support their goals but do NOT provide or suggest any recipes directly.
+            - Conclude with a friendly prompt to the user, invoking them to check out the recommended recipes below to support their goals but do NOT provide or suggest any recipes directly. Don't phrase this part as a question.
             """
         ),
         ("user", prompt)
