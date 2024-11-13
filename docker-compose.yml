@@ -1,0 +1,36 @@
+version: '3.8'
+
+services:
+  frontend:
+    build:
+      context: ./frontend
+    ports:
+      - "3000:3000"
+    depends_on:
+      - backend
+    environment:
+      - REACT_APP_BACKEND_URL=http://backend:8000  # Accessing backend service via service name
+
+  backend:
+    build:
+      context: ./backend
+    ports:
+      - "8000:8000"
+    volumes:
+      - ./backend/data:/app/data  # Mounting the data directory containing recipes into the backend container
+
+  ollama:
+    image: ollama/ollama:latest
+    environment:
+      - OLLAMA_HOST=0.0.0.0
+    ports:
+      - "11434:11434"
+    volumes:
+      - ollama-models:/root/.ollama/models  
+    healthcheck:
+      test: ["CMD", "curl", "-f", "http://localhost:11434"]
+      interval: 10s
+      retries: 5
+
+volumes:
+  ollama-models:

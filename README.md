@@ -1,7 +1,6 @@
 # MealPlan - Recipe Recommender
 
-![MealPlan Banner](assets/banner.jpg) 
-
+![MealPlan Banner](assets/banner.jpg)
 
 **MealPlan** is a personalized meal recommendation tool I built to help assist me in planning my meals effectively and meet my dietary goals using a combination of nutritional science and machine learning.
 
@@ -19,13 +18,46 @@
 - **Navigation**: React Router for seamless page transitions.
 - **Backend**: FastAPI to handle API requests and deliver meal recommendations.
 
+---
 
-### Prerequisites
+## Prerequisites
 
 - [Python 3.10+](https://www.python.org/downloads/)
 - [Node.js and npm](https://nodejs.org/)
+- [Docker](https://www.docker.com/)
+- [Ollama](https://ollama.com/)
+---
 
-### Running the App Locally
+## Running the App via Docker (Option 1 - Recommended)
+
+***Note: In this option, we are using LLama3.2 1B model (`llama3.2:1b`)***
+
+1. **Build and Start the App**:
+   - Use Docker Compose to build and start all required services:
+     ```bash
+     docker-compose up --build
+     ```
+   - This will start three services:
+     - **Frontend**: Available at [http://localhost:3000](http://localhost:3000)
+     - **Backend**: Exposes API at [http://localhost:8000](http://localhost:8000)
+     - **Ollama Service**: Runs the required LLM models locally.
+
+2. **Load the Correct LLM Locally**:
+   - After starting the containers, you need to load the `llama3.2:1b` model in the Ollama service. Run the following command in a terminal:
+     ```bash
+     docker exec -it diet_recommendation-ollama-1 ollama run llama3.2:1b
+     ```
+   - This ensures the correct model is ready to process requests.
+
+3. **Access the App**:
+   - Navigate to [http://localhost:3000](http://localhost:3000) to use the app.
+   - Access [http://localhost:8000/docs](http://localhost:8000/docs) for API documentation.
+
+---
+
+## Running the App Locally (Option 2)
+
+***Note: In this option, we are using LLama3.2 3B model (`llama3.2:latest`)***
 
 1. **Start the Backend**:
    - Open a terminal, navigate to the `backend` directory, and start the FastAPI server with:
@@ -39,13 +71,11 @@
      npm start
      ```
 
-   The frontend will be available at `http://localhost:3000`.
+3. **Access the App**:
+   - Go to [http://localhost:3000](http://localhost:3000) in your browser to use the app.
 
-### Usage
-
-- Go to `http://localhost:3000` in your browser to access the app.
+---
 
 ## Future Goals
 
-- **Enhanced Recommendations**:  The current recommendation model is quite basic, and future updates aim to incorporate language models and advanced recommendation techniques to provide more nuanced and personalized meal reccomendations.
-- **Detailed Nutritional Breakdown**: Show additional information like macros, vitamins, and minerals for each recommended meal along with the recipe.
+- **Enhanced Recommendations**: The current recommendation model is quite basic, and future updates aim to incorporate language models and advanced recommendation techniques to provide more nuanced and personalized meal recommendations.

@@ -63,7 +63,8 @@ def initialize_data():
     """Initialize and cache processed data and recommender."""
     global processed_data, recommender
     logging.info("Initializing data and recommender...")
-    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../../"))
+    base_dir = os.path.abspath(os.path.join(os.path.dirname(__file__), "../"))
+    print(base_dir)
     recipe_file = os.path.join(base_dir, "data", "recipes.parquet")
     ingredient_file = os.path.join(base_dir, "data", "recipes_ingredients.csv")
 
@@ -132,9 +133,10 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
     )
     
     llm = ChatOllama(
-        model="llama3.2",
+        model="llama3.2:1b",
         temperature=0.8,
         num_predict=256,
+        base_url="http://ollama:11434",
         callbacks=[StreamingCallbackHandler()]
     )
     
