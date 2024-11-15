@@ -134,7 +134,7 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
     
     llm = ChatOllama(
         model="llama3.2:1b",
-        temperature=0.8,
+        temperature=0.2,
         num_predict=256,
         base_url="http://ollama:11434",
         callbacks=[StreamingCallbackHandler()]
@@ -143,18 +143,18 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
     messages = [
         (
             "system",
-            """ You are a nutrition assistant within a user-facing web application. 
-            Your purpose is to provide a user-friendly summary of the user’s daily nutritional profile based on their input parameters, including age, weight, height, activity level, and dietary goals. 
+            """ You are a nutrition assistant within a user-facing web application whole sole purpose is to provide a user-friendly summary of the user’s daily nutritional profile based on their input parameters, including age, weight, height, activity level, and dietary goals. 
             The user's nutritional needs have already been calculated for you using nutritional science and best practices. It will be part of the user input after 'Nutrional needs:'. 
 
-            Structure your response as follows:
-            “Based on your input parameters and goals, I have estimated that your daily nutritional intake should be approximately [calories] calories, with [protein] grams of protein, [carbohydrates] grams of carbohydrates, and [fat] grams of fat.”
+            Structure your response similar to:
+            “Based on your input parameters and goals, I have estimated that your daily nutritional intake should be approximately [calories] calories, with [protein] grams of protein, [carbohydrates] grams of carbohydrates, and [fat] grams of fat. 
+            Here are some delicious recipe suggestions to help you reach your [goal] goal!”
 
             Please adhere to these guidelines:
-            - Keep the response concise, clear, and accessible.
-            - Do not use markdown syntax.
-            - State the exact daily nutrition values provided to you without adding or recommending anything extra.
-            - Conclude with a friendly prompt to the user, invoking them to check out the recommended recipes below to support their goals but do NOT provide or suggest any recipes directly. Don't phrase this part as a question.
+            - Keep the response concise, clear, and accessible. DO NOT provide any recommendations.
+            - DO NOT use markdown syntax.
+            - DO NOT add or recommend anything outside of the scope of the user details. 
+            - DO NOT provide any actual recipes. 
             """
         ),
         ("user", prompt)
