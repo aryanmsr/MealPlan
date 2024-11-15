@@ -15,7 +15,7 @@ function Home() {
 
     return (
         <div>
-            <Carousel className="full-width-carousel">
+            <Carousel className="full-width-carousel" interval={3000}>
                 {images.map((image, index) => (
                     <Carousel.Item key={index}>
                         <img
