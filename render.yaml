@@ -1,0 +1,5 @@
+services:
+  - type: web
+    name: mealplan
+    env: docker
+    dockerfilePath: ./docker-compose.yml
