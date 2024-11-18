@@ -28,9 +28,7 @@ services:
     type: worker 
     env: docker
     plan: starter
-    image: ollama/ollama:latest 
-    ports:
-      - containerPort: 11434
+    image: ollama/ollama:latest
     healthCheckCommand: curl -f http://localhost:11434
     regions:
       - oregon
