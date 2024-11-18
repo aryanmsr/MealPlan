@@ -25,11 +25,12 @@ services:
       - oregon
 
   - name: ollama
-    type: web
+    type: worker 
     env: docker
     plan: starter
-    dockerfilePath: Dockerfile  
-    image: ollama/ollama:latest
+    image: ollama/ollama:latest 
     ports:
       - containerPort: 11434
-    healthCheckCommand: curl -f http:/
+    healthCheckCommand: curl -f http://localhost:11434
+    regions:
+      - oregon
