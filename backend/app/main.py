@@ -18,6 +18,12 @@ logging.basicConfig(level=logging.INFO, format="%(asctime)s - %(levelname)s - %(
 
 app = FastAPI()
 
+
+# Health check endpoint
+@app.get("/health")
+def health_check():
+    return {"status": "healthy"}
+
 # Configure CORS for frontend communication
 app.add_middleware(
     CORSMiddleware,
