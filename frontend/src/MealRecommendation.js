@@ -79,9 +79,11 @@ function MealRecommendation() {
         return value;
     };
 
+
     return (
         <div className="container mt-5">
             <h2 className="text-center mb-4" style={{ color: 'black' }}>Personalized Meal Recommendations</h2>
+            
             <div className="card p-4 shadow-sm">
                 <form onSubmit={handleSubmit}>
                     <div className="row">

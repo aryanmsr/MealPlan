@@ -137,15 +137,7 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
         f"{int(nutrients['proteinContent'])}g protein, {int(nutrients['carbohydrateContent'])}g carbs, "
         f"and {int(nutrients['fatContent'])}g fat daily."
     )
-    
-    llm = ChatOllama(
-        model="llama3.2:1b",
-        temperature=0.2,
-        num_predict=256,
-        base_url="http://ollama:11434",
-        callbacks=[StreamingCallbackHandler()]
-    )
-    
+        
     messages = [
         (
             "system",
@@ -167,9 +159,28 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
     ]
     print(messages)
     
-    token_generator = llm.stream(messages)
-    async for chunk in async_generator_wrapper(token_generator):
-        yield chunk.content if hasattr(chunk, "content") else str(chunk)
+    try:
+        llm = ChatOllama(
+            model="llama3.2:1b",
+            temperature=0.2,
+            num_predict=256,
+            base_url="http://ollama:11434",
+            callbacks=[StreamingCallbackHandler()]
+            )
+        token_generator = llm.stream(messages)
+        async for chunk in async_generator_wrapper(token_generator):
+            yield chunk.content if hasattr(chunk, "content") else str(chunk)
+    except:
+        llm = ChatOllama(
+            model="llama3.2:latest",
+            temperature=0.2,
+            num_predict=256,
+            base_url="http://ollama:11434",
+            callbacks=[StreamingCallbackHandler()]
+            )
+        token_generator = llm.stream(messages)
+        async for chunk in async_generator_wrapper(token_generator):
+            yield chunk.content if hasattr(chunk, "content") else str(chunk)
 
 @app.post("/recommend-summary/")
 async def recommend_summary(preferences: UserPreferences):
