@@ -2,7 +2,7 @@
 
 [![MealPlan Demo](assets/banner.jpg)](assets/MealPlanDemo.mp4)
 
-[![View Demo](assets/MealPlanDemo.mp4)](assets/MealPlanDemo.mp4)
+[![View Demo]](assets/MealPlanDemo.mp4)
 
 **MealPlan** is a personalized meal recommendation tool I built to help assist me in planning my meals effectively and meet my dietary goals using a combination of nutritional science and machine learning.
 
