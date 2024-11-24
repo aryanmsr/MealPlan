@@ -162,6 +162,7 @@ class MealRecommender:
         :param goal: User's goal.
         :return: Dictionary of estimated nutritional needs.
         """
+
         # Mifflin St Jeor Equation for BMR
         bmr = 10 * weight + 6.25 * height - 5 * age + (5 if sex.lower() == 'male' else -161)
         activity_factors = {
