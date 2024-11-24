@@ -7,16 +7,12 @@ services:
     envVars:
       - key: REACT_APP_BACKEND_URL
         value: http://backend:8000
-    buildCommand: npm run build
-    healthCheckPath: /
 
   - name: backend
     type: web
     env: docker
     plan: starter
     dockerfilePath: ./backend/Dockerfile
-    buildCommand: pip install -r requirements.txt
-    healthCheckPath: /health
 
   - name: ollama
     type: worker
