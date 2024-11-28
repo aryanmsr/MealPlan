@@ -238,5 +238,3 @@ class MealRecommender:
         # Find nearest neighbors for this meal type
         distances, indices = knn.kneighbors(user_features_scaled)
         return meal_data.iloc[indices[0]]
-
-

@@ -9,7 +9,7 @@ services:
     depends_on:
       - backend
     environment:
-      - REACT_APP_BACKEND_URL=http://backend:8000  # Accessing backend service via service name
+      - REACT_APP_BACKEND_URL=http://backend:8000  
       - DATA_SOURCE=${DATA_SOURCE}  
 
   backend:
@@ -18,7 +18,7 @@ services:
     ports:
       - "8000:8000"
     volumes:
-      - ./backend/data:/app/data  # Mounting the data directory containing recipes into the backend container
+      - ./backend/data:/app/data  
 
   ollama:
     image: ollama/ollama:latest

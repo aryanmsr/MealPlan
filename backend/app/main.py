@@ -175,7 +175,6 @@ async def generate_summary_stream(preferences, nutrients) -> AsyncGenerator[str,
             model="llama3.2:latest",
             temperature=0.2,
             num_predict=256,
-            base_url="http://ollama:11434",
             callbacks=[StreamingCallbackHandler()]
             )
         token_generator = llm.stream(messages)

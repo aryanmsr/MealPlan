@@ -28,6 +28,12 @@
 - [Node.js and npm](https://nodejs.org/)
 - [Docker](https://www.docker.com/)
 - [Ollama](https://ollama.com/)
+
+For Llama 3.2 models:
+
+- Option 1 (Docker): Install the llama3.2:1b model by downloading and running Ollama as a Docker service. Follow the instructions in the [Ollama Docker guide.](https://ollama.com/blog/ollama-is-now-available-as-an-official-docker-image)
+- Option 2 (Local): Download the llama3.2:latest model by following the instructions [here.](https://ollama.com/blog/llama3.2)
+
 ---
 
 ## Running the App via Docker (Option 1 - Recommended)
